@@ -1,30 +1,23 @@
-
-
-class PizzaOrder:
+class Pizza:
     def __init__(self):
-        self.topping_count = 0
+        self.toppings = []
 
     def add_topping(self, topping):
-        if topping == "pepperoni":
-            self.topping_count += 1
-        if topping == "mushrooms":
-            self.topping_count += 1
-        if topping == "extra cheese":
-            self.topping_count +=1
-            return True
-        return False
+        if topping in ["pepperoni", "mushrooms", "extra cheese"]:
+            self.toppings.append(topping)
+        else:
+            print("Sorry! Not on the menu.")
 
-def calculate_total(self):
-    return 10.00 + (self.topping_count * 1.50)
+    def calculate_total(self):
+        return 10.00 + (len(self.toppings) * 1.50)
 
 
-order = PizzaOrder()
 
-while True:
-    topping = input("Enter topping: ").lower()
+pizza = Pizza()
 
-    if topping == "done":
-        break
-        print("Sorry! Not on the menu.")
+pizza.add_topping("pepperoni")
+pizza.add_topping("mushrooms")
+pizza.add_topping("extra cheese")
 
-print(order.calculate_total())
+
+print(f"Total: ${pizza.calculate_total()}")
